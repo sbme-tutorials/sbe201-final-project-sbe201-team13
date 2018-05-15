@@ -1,0 +1,29 @@
+#ifndef BS_HPP
+#define BS_HPP
+namespace B_S {
+char Search(int arr[], char value, int size) {
+      int right = size-1;
+      int left= 0;
+      while (left <= right) {
+
+            int mid = (left + right) / 2;
+
+            if (arr[mid] == value)
+
+                  return mid;
+
+            else if (arr[mid] > value)
+
+                  right = mid - 1;
+
+            else
+
+                  left = mid + 1;
+
+      }
+
+      return -1;
+
+}
+}
+#endif
