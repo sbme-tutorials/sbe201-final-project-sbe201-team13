@@ -3,7 +3,7 @@
 
 namespace PER 
 {
-double Per(char *pat, char *txt, int *suffArr, int n,&z,&y)
+double Per(char *pat, char *txt, int *suffArr, int n,ddouble &z,double &y)
 { 
   
     int m = strlen(pat);  
