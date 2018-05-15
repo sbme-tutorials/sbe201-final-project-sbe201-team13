@@ -1,6 +1,8 @@
 #ifndef PER_HPP
 #define PER_HPP
 
+#include <cstring>
+
 namespace PER 
 {
 double Per(char *pat, char *txt, int *suffArr, int n,ddouble &z,double &y)
