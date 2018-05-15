@@ -6,7 +6,7 @@
 namespace pattern_search
 {
 
-      bool search(int arr[], char (&pattern)[10], int size)
+      bool search(char *pat, char *txt, int *suffArr, int n)
       {
         int m = strlen(pat);
 
