@@ -1,3 +1,6 @@
+#ifndef suffixArr_HPP
+#define suffixArr_HPP
+
 #include <cstring>
 #include <algorithm>
 
@@ -30,3 +33,4 @@ int *buildSuffixArray(char *txt, int size)
     }
     return suffixArray;
 }
+#endif
