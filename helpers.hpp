@@ -35,11 +35,11 @@ int remainderExist( int size )
     else    return 0;
 }
 
-std::vector<char*> getPatterns( const char *filepath, int lineNum, int &patternsNum )
+std::vector<std::string> *getPatterns( const char *filepath, int lineNum, int &patternsNum )
 {
     std::ifstream f( filepath );
     std::string line;
-    std::vector < char* > patterns;
+    //std::vector < std::string > patterns;
     
     if( f )
     {
@@ -53,19 +53,13 @@ std::vector<char*> getPatterns( const char *filepath, int lineNum, int &patterns
     else std::cout << "Failed to open file:" << filepath << '\n';
     
     patternsNum = line.size()/10 + remainderExist( line.size() );
+    std::vector < std::string > *patterns = new std::vector < std::string >(patternsNum);
     
-    int counter = 1;
-    int j = 11;
-    for( int i = 0; counter <= patternsNum; i += 10 )
+    int counter = 0;
+    for( int i = 0; counter < patternsNum; i += 10 )
     {
-        if( counter==patternsNum && remainderExist(line.size()) )  j = line.size()%10;
-        char *buffer = new char[j];
-        buffer[j] = '\0';
-        
-        if( !counter==patternsNum )  std::copy( line[i], line[i+9], &buffer[0] );
-        else    std::copy( line[i], line[line.size()-1], &buffer[0] );
-        
-        patterns.push_back( buffer );
+        if( !counter==(patternsNum-1) ) patterns->push_back( line.substr(i,10) );
+        else    patterns->push_back( line.substr(i) );
         ++counter;
     }
     
