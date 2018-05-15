@@ -29,7 +29,13 @@ char *getDNA( const char *filepath, int lineNum, int &size)
     return buffer;
 }
 
-std::vector<char*> getPatterns( const char *filepath, int lineNum, int &size, int &patternsNum )
+int remainderExist( int size )
+{
+    if( size%10 )  return 1;
+    else    return 0;
+}
+
+std::vector<char*> getPatterns( const char *filepath, int lineNum, int &patternsNum )
 {
     std::ifstream f( filepath );
     std::string line;
@@ -46,20 +52,25 @@ std::vector<char*> getPatterns( const char *filepath, int lineNum, int &size, in
     }
     else std::cout << "Failed to open file:" << filepath << '\n';
     
-    patternsNum = (line.size()+1)/10 + (line.size()+1)%10;
+    patternsNum = line.size()/10 + remainderExist( line.size() );
     
     int counter = 1;
-    for( int i = 0; counter <= patternsNum; i = i+10 )
+    int j = 11;
+    for( int i = 0; counter <= patternsNum; i += 10 )
     {
-        char *buffer = new char[11];
-        buffer[11] = '\0';
+        if( counter==patternsNum && remainderExist(line.size()) )  j = line.size()%10;
+        char *buffer = new char[j];
+        buffer[j] = '\0';
+        
         if( !counter==patternsNum )  std::copy( line[i], line[i+9], &buffer[0] );
         else    std::copy( line[i], line[line.size()-1], &buffer[0] );
+        
         patterns.push_back( buffer );
         ++counter;
     }
     
     return patterns;
 }
+
 
 #endif
