@@ -1,6 +1,5 @@
 #ifndef BS_HPP
 #define BS_HPP
-// include jimmy hpp , change type of value
 namespace B_S {
 char Search(int arr[], char value, int size) {
       int right = size-1;
