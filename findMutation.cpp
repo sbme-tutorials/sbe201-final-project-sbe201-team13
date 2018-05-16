@@ -1,9 +1,11 @@
 #include "helpers.hpp"
 #include "SuffixArray.hpp"
-
-int main( int argc, char **argv )
+#include <cstring>
+#include "patternsearch2.hpp"
+#include <iostream>
+int main(int argc, char **argv)
 {
-    if( argc != 3 )
+    if (argc != 3)
     {
         std::cout << "Invalid usage!" << '\n';
         return 1;
@@ -11,15 +13,31 @@ int main( int argc, char **argv )
     else
     {
         int size = 0;
-        char *dna = getDNA( argv[1], 0, size );
-        
-        int *suffixArr = buildSuffixArray( dna, size );
-        
+        char *dna = getDNA(argv[1], 0, size);
+
+        int *suffixArr = buildSuffixArray(dna, size);
+
         int patternsNum = 0;
-        std::vector<std::string> &patterns = *getPatterns( argv[2], 0, patternsNum );
-        
+
+        int found = 0;
+        std::vector<std::string> &patterns = *getPatterns(argv[2], 0, patternsNum);
+
+        char char_array[10];
+        for (int i = 0; i < patternsNum; i++)
+        {
+            std::strcpy(char_array, patterns[i].c_str());
+            found += searchptn(char_array, dna, suffixArr, size);
+        }
+
+        float present = found / patternsNum *100;
+        std::cout<<"mutation presentage ";
+        std::cout<<present<<"%"<<std::endl;
+        if(present<15)
+        {
+             std::cout<<"congratulation you are safe"<<std::endl;
+        }
         //Now the patterns are patterns[0], patterns[1],......,patterns[patternsNum-1] of type std::string
         //Complete the logic for searching the patterns
-        
     }
+    return 0;
 }
