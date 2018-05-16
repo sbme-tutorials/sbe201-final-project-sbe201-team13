@@ -95,7 +95,7 @@ char *getPatterns(const char *filepath, int lineNum, int &patternsNum)
     char *buffer = new char[line.size() + 1];
     buffer[line.size()] = '\0';
     std::copy(line.begin(), line.end(), &buffer[0]);
-    char *patternslocations[patternsNum];
+    char **patternslocations = new char *[patternsNum];
     for (int i = 0; i < patternsNum; i++)
     {
         patternslocations[i] = buffer + num * i;
