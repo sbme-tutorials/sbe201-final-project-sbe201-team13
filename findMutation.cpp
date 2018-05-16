@@ -19,15 +19,15 @@ int main(int argc, char **argv)
 
         int patternsNum = 0;
 
-        int found = 0;
-        // std::vector<std::string> &patterns = *getPatterns(argv[2], 0, patternsNum);
-        auto &patterns = *getPatterns(argv[2], 0, patternsNum);
-
-        char char_array[10];
+        float found = 0;
+        //std::vector<std::string> &patterns = *getPatterns(argv[2], 0, patternsNum);
+        auto patterns = getPatterns(argv[2], 0, patternsNum);
+        //char char_array[num];
         for (int i = 0; i < patternsNum; i++)
         {
-            std::strcpy(char_array, patterns[i].c_str());
-            found += searchptn(char_array, dna, suffixArr, size);
+            // std::strcpy(char_array, patterns[i].c_str());
+
+            found = found + searchptn(&patterns[i * num], dna, suffixArr, size, num);
         }
 
         float present = found / patternsNum * 100;
