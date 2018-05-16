@@ -20,7 +20,8 @@ int main(int argc, char **argv)
         int patternsNum = 0;
 
         int found = 0;
-        std::vector<std::string> &patterns = *getPatterns(argv[2], 0, patternsNum);
+        // std::vector<std::string> &patterns = *getPatterns(argv[2], 0, patternsNum);
+        auto &patterns = *getPatterns(argv[2], 0, patternsNum);
 
         char char_array[10];
         for (int i = 0; i < patternsNum; i++)
@@ -29,12 +30,12 @@ int main(int argc, char **argv)
             found += searchptn(char_array, dna, suffixArr, size);
         }
 
-        float present = found / patternsNum *100;
-        std::cout<<"mutation presentage ";
-        std::cout<<present<<"%"<<std::endl;
-        if(present<15)
+        float present = found / patternsNum * 100;
+        std::cout << "mutation presentage ";
+        std::cout << present << "%" << std::endl;
+        if (present < 15)
         {
-             std::cout<<"congratulation you are safe"<<std::endl;
+            std::cout << "congratulation you are safe" << std::endl;
         }
         //Now the patterns are patterns[0], patterns[1],......,patterns[patternsNum-1] of type std::string
         //Complete the logic for searching the patterns
