@@ -4,7 +4,7 @@
 -    It is important to know that the most cancers are what we call **sporadic cancers**, these are isolated cases of cancer that are caused by
         * age
         * lifestyle 
-        * environment
+        * environment <br/>
 Not by genetic risk factors.
 
 * People who have sporadic cancers and their families have an average chance of getting cancer themselves and can follow the usual recommendations for cancer prevention and monitoring.
@@ -27,7 +27,6 @@ Not by genetic risk factors.
 |  - Few people in the family who had cancer.|  - Multiple family members.                  |
 |  - Different types of cancer.              |  - Same or related types of cancer.          |
 |                                            |  - Rare cancers                              |
-+--------------------------------------------+----------------------------------------------+
 
 * **Genetic testing** can help us to get more information as you may know we inherit from our mother in an egg and our father in a sperm a complete set of genetic information for how our body will grow and develop there are thousands of different genes and each gene is a set of instructions for something specific.
 
