@@ -21,12 +21,12 @@ We have two tools to find families with hereditary cancer
 
  Let’s take a closure look at **family history** in families with **sporadic cancer** and those with **hereditary cancer**
 
-|Sporadic                                    |Hereditary                                    |
-|--------------------------------------------|----------------------------------------------|
-|  - Cancer at later ages.                   |  - Cancer at young ages.                     |  
-|  - Few people in the family who had cancer.|  - Multiple family members.                  |
-|  - Different types of cancer.              |  - Same or related types of cancer.          |
-|                                            |  - Rare cancers                              |
+|Sporadic                                   |Hereditary                                   |
+|-------------------------------------------|---------------------------------------------|
+|   Cancer at later ages.                   |   Cancer at young ages.                     |  
+|   Few people in the family who had cancer.|   Multiple family members.                  |
+|   Different types of cancer.              |   Same or related types of cancer.          |
+|                                           |   Rare cancers                              |
 
 **Genetic testing** can help us to get more information as you may know we inherit from our mother in an egg and our father in a sperm a complete set of genetic information for how our body will grow and develop there are thousands of different genes and each gene is a set of instructions for something specific.
 
@@ -43,3 +43,58 @@ In families with hereditary cancer one of these important tumor suppressor genes
  While we have been using the term hereditary cancer it’s more accurate to say people with a mutation in a tumor suppressor gene have a hereditary predisposition to cancer, this is a long way of saying they have a higher chance of developing cancer than other people.
 
  We don’t do genetic testing just to tell people that they have a higher chance of getting cancer, we do genetic testing to find people who have a higher chance of getting cancer, so that we can offer them options for cancer monitoring and cancer prevention that are specific to them.
+
+## Suffix array
+
+The problem of finding the occurrences of a pattern string in a given text is one of the most fundamental computational tasks in bioinformatics. In most bioinformatics applications, the text is a huge database onto which a large volume of pattern queries are thrown. In such cases, precomputing an indexed data structure of the text allows efficient processing of pattern searches.
+
+One simple and effective data structure is a **suffix array**, which informally is a list of the starting positions of the suffixes of the text, sorted by their alphabetical order. Suffix arrays are easy to understand and implement and form the basis for a host of other sophisticated indexing techniques.
+
+### Building suffix array
+
+There are many algorithms that can be used to construct a suffix array we have used **Naive method** to build Suffix Array.
+
+Naive method to build Suffix Array:
+
+A simple method to construct suffix array is to make an array of all suffixes and then sort the array.
+
+Example:
+
+Let the given string be "banana".
+```c++
+0 banana                          5 a
+1 anana     Sort the Suffixes     3 ana
+2 nana      ---------------->     1 anana  
+3 ana        alphabetically       0 banana  
+4 na                              4 na   
+5 a                               2 nana
+```
+So the suffix array for "banana" is {5, 3, 1, 0, 4, 2}
+
+The time complexity for this method is about O(n2Logn) if we consider a O(nLogn) algorithm used for sorting. The sorting step itself takes O(n2Logn) time as every comparison is a comparison of two strings and the comparison takes O(n) time.
+
+Suffix array is an efficient in space as it requires about (4n).
+
+## Searching 
+
+**Searching patterns**
+
+to find how much of the  sequence we’re searching for have been located in the genome we have break down the long sequence into small pieces of 10 characters then searching for each piece in the genome and calculate how many word have been found.
+
+**Searching method**
+
+To search a pattern in a text, we preprocess the text and build a suffix array of the text. Since we have a sorted array of all suffixes, Binary Search can be used to search.
+
+**Binary Search**
+
+Search a sorted array by repeatedly dividing the search interval in half. Begin with an interval covering the whole array. If the value of the search key is less than the item in the middle of the interval, narrow the interval to the lower half. Otherwise narrow it to the upper half. Repeatedly check until the value is found or the interval is empty, the time complexity of the  search function is O(nLogn).
+
+There are more efficient algorithms to search pattern once the suffix array is built.
+
+
+## References
+
+1. [Suffix array](https://en.wikipedia.org/wiki/Suffix_array), *Wikipedia*.
+2. [Suffix array](https://www.geeksforgeeks.org/suffix-array-set-1-introduction/), *geeksforgeeks*. 
+3. [Suffix array](https://academic.oup.com/bib/article/15/2/138/212729).
+ 
