@@ -1,13 +1,13 @@
 # Introduction
 
 
--    It is important to know that the most cancers are what we call **sporadic cancers**, these are isolated cases of cancer that are caused by
+<p>    It is important to know that the most cancers are what we call **sporadic cancers**, these are isolated cases of cancer that are caused by</p>
         * age
         * lifestyle 
         * environment 
-        * Not by genetic risk factors.
+<p>Not by genetic risk factors.</p>
 
-* People who have sporadic cancers and their families have an average chance of getting cancer themselves and can follow the usual recommendations for cancer prevention and monitoring.
+<p> People who have sporadic cancers and their families have an average chance of getting cancer themselves and can follow the usual recommendations for cancer prevention and monitoring.</p>
 
 * A smaller group of families have what we call **hereditary cancer** in these families there is a strong inherited risk factor for cancer and  this is stronger than lifestyle and environment although life style and environment are still important.
 
