@@ -4,8 +4,8 @@
 -    It is important to know that the most cancers are what we call **sporadic cancers**, these are isolated cases of cancer that are caused by
         * age
         * lifestyle 
-        * environment <br/>
-Not by genetic risk factors.
+        * environment 
+        * Not by genetic risk factors.
 
 * People who have sporadic cancers and their families have an average chance of getting cancer themselves and can follow the usual recommendations for cancer prevention and monitoring.
 
