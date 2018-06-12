@@ -109,10 +109,14 @@ There are more efficient algorithms to search pattern once the suffix array is b
 To find  mutations we use both searching patterns and dividing methods. We divide a mutated pattern into small patterns and searching for all patterns until found one in the sequance which is unmutated pattern. We can find mutations locations by more dividing and searching.
 ### example
 assume a mutated **banmna** and the real pattern is **banana** as the pervious two examples.How can we find the mutation location?
+
 **First** divide the pattern into two small patterns **ban** and **mna**.
 second we search fo the pattern **ban** as pervious which will be found at location **0** and knowing that the pattern lenght is 3 characters we can estimate that no mutation happend before the index **2**. (1)
+
 **Second** we searching for the second pattern **mna** which will not be found the pattern **banana**. so we divide it again into two halfs **m** and **na**.
+
 **Third** we repeat first and second steps until we found the mutation. We search for **m** which will not be found.Then, We search for **na** which will be found at index **4** and knowing that it's length is **2**, we can estimate that no mutation have been happend between indexes: **2** and **5**. (2)
+
 **Using** informations at (1) and (2), we can estimate that the mutation happend between the indexes **2** and **4** which is the index **3**.
 
 
