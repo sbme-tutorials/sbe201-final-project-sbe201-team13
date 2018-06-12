@@ -44,17 +44,17 @@ In families with hereditary cancer one of these important tumor suppressor genes
 
  We don’t do genetic testing just to tell people that they have a higher chance of getting cancer, we do genetic testing to find people who have a higher chance of getting cancer, so that we can offer them options for cancer monitoring and cancer prevention that are specific to them.
 
-## Suffix array
+# Suffix array
 
 The problem of finding the occurrences of a pattern string in a given text is one of the most fundamental computational tasks in bioinformatics. In most bioinformatics applications, the text is a huge database onto which a large volume of pattern queries are thrown. In such cases, precomputing an indexed data structure of the text allows efficient processing of pattern searches.
 
 One simple and effective data structure is a **suffix array**, which informally is a list of the starting positions of the suffixes of the text, sorted by their alphabetical order. Suffix arrays are easy to understand and implement and form the basis for a host of other sophisticated indexing techniques.
 
-### Building suffix array
+## Building suffix array
 
 There are many algorithms that can be used to construct a suffix array we have used **Naive method** to build Suffix Array.
 
-Naive method to build Suffix Array:
+**Naive method** to build Suffix Array:
 
 A simple method to construct suffix array is to make an array of all suffixes and then sort the array.
 
@@ -79,7 +79,7 @@ Suffix array is an efficient in space as it requires about (4n).
 
 **Searching patterns**
 
-to find how much of the  sequence we’re searching for have been located in the genome we have break down the long sequence into small pieces of 10 characters then searching for each piece in the genome and calculate how many word have been found.
+To find how much of the  sequence we’re searching for have been located in the genome we have break down the long sequence into small pieces of 10 characters then searching for each piece in the genome and calculate how many word have been found.
 
 **Searching method**
 
@@ -89,7 +89,37 @@ To search a pattern in a text, we preprocess the text and build a suffix array o
 
 Search a sorted array by repeatedly dividing the search interval in half. Begin with an interval covering the whole array. If the value of the search key is less than the item in the middle of the interval, narrow the interval to the lower half. Otherwise narrow it to the upper half. Repeatedly check until the value is found or the interval is empty, the time complexity of the  search function is O(nLogn).
 
+### example 
+We search for a pattern **na** in the previous suffix array {5, 3, 1, 0, 4, 2}. We jump to the middle of the suffix array (**array [2]**) which is index **1** 
+```c++
+is na == anana?
+  false
+else is na> anana?->true
+  jump to middle of array {0,4,2}
+```
+Now we jump to the middle of the array which is **4**
+```c++
+is na == na?
+  true
+  na found at index 4
+```
 There are more efficient algorithms to search pattern once the suffix array is built.
+
+# Finding Mutation
+To find  mutations we use both searching patterns and dividing methods. We divide a mutated pattern into small patterns and searching for all patterns until found one in the sequance which is unmutated pattern. We can find mutations locations by more dividing and searching.
+### example
+assume a mutated **banmna** and the real pattern is **banana** as the pervious two examples.How can we find the mutation location?
+**First** divide the pattern into two small patterns **ban** and **mna**.
+second we search fo the pattern **ban** as pervious which will be found at location **0** and knowing that the pattern lenght is 3 characters we can estimate that no mutation happend before the index **2**. (1)
+**Second** we searching for the second pattern **mna** which will not be found the pattern **banana**. so we divide it again into two halfs **m** and **na**.
+**Third** we repeat first and second steps until we found the mutation. We search for **m** which will not be found.Then, We search for **na** which will be found at index **4** and knowing that it's length is **2**, we can estimate that no mutation have been happend between indexes: **2** and **5**. (2)
+**Using** informations at (1) and (2), we can estimate that the mutation happend between the indexes **2** and **4** which is the index **3**.
+
+
+
+ 
+
+
 
 
 ## References
